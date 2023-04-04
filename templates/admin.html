@@ -1,0 +1,115 @@
+{% extends "home.html" %}
+{%block title %}Admin page{% endblock %}
+
+{%block admin_header %}
+<h3>Welcome to the admin page, {{username}}</h3>
+{% endblock %}
+{% block content %}
+<div class="content">
+    <div class="tabs">
+        <div class="tab">
+            <input cheked class="tablinks" id="Actor"
+                   name="css-tabs" type="radio"/>
+            <label class="tab-label" for="Actor">Actor Table</label>
+            <div class="tabcontent">
+                <div class="table-wrapper">
+                    <div class="table-scroll">
+                        <table id="actor-table">
+                            <tr>
+                                <th scope="col">Update actor</th>
+                                <th scope="col">Aktors namn</th>
+                                <th scope="col">Kommentarer</th>
+                                <th scope="col">Tonsättare</th>
+                                <th scope="col">Född</th>
+                                <th scope="col">Död</th>
+                                <th scope="col">AktivStart</th>
+                                <th scope="col">AktivSlut</th>
+                                <th scope="col">Url</th>
+                                <th colspan="2" scope="col">Nation</th>
+                                <th colspan="2" scope="col">Huvudinstrument</th>
+                                <th colspan="2" scope="col">Typ</th>
+                                <th scope="col">Delete Actor</th>
+                            </tr>
+                            <tbody>
+                            {% for actor, nation, instrument, gender in
+                            actor_joint_table %}
+                            <tr>
+                                <td>
+                                    <div class="update">
+                                        <input id="{{actor.id}}"
+                                               name="{{actor.id}}"
+                                               type="checkbox">
+                                    </div>
+                                </td>
+                                <td>{{actor.name}}</td>
+                                <td>{{actor.comment}}</td>
+                                <td>{{actor.compose}}</td>
+                                <td>{{actor.born}}</td>
+                                <td>{{actor.death}}</td>
+                                <td>{{actor.activity_start}}</td>
+                                <td>{{actor.activity_end}}</td>
+                                <td>{{actor.url}}</td>
+                                <td colspan="2" scope="col">{{nation.id}} /
+                                    {{nation.name}}
+                                </td>
+                                <td colspan="2" scope="col">
+                                    {{instrument.instrument_id}} /
+                                    {{instrument.instrument_namn}}
+                                </td>
+                                <td colspan="2" scope="col">{{gender.gender_id}}
+                                    /
+                                    {{gender.description}}
+                                </td>
+                                <td>
+                                    <div class="delete">
+                                        <input id="{{actor.id}}"
+                                               name="{{actor.id}}"
+                                               type="checkbox">
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <input class="tablinks" id="Consert" name="css-tabs" type="radio"/>
+            <label class="tab-label" for="Consert">Consert Table</label>
+            <div class="tabcontent">
+                <div class="table-wrapper">
+                    <div class="table-scroll">
+                        <h3>Consert page is comming</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <input class="tablinks" id="Add-Actor" name="css-tabs"
+                   type="radio"/>
+            <label class="tab-label" for="Add-Actor">Consert Table</label>
+            <div class="tabcontent">
+                <div class="table-wrapper">
+                    <div class="table-scroll">
+                        <h3>Add-Actor page is comming</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab">
+            <input class="tablinks" id="Add-Consert" name="css-tabs"
+                   type="radio"/>
+            <label class="tab-label" for="Add-Consert">Add Consert</label>
+            <div class="tabcontent">
+                <div class="table-wrapper">
+                    <div class="table-scroll">
+                        <h3>Add Consert is comming</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

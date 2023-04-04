@@ -1,0 +1,167 @@
+body {
+    background-image: url("pictures/background_uu_logo.jpg");
+    color: #050505;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    padding-left: 10em;
+    min-width: 320px;
+}
+
+.container {
+   width: 95%;
+   min-width: 1000px;
+   margin: auto;
+ }
+.admin-login {
+  background: #F2F2F2;
+  border-bottom: 1px solid #DFDFDF;
+  box-shadow: #DFDFDF 0 0 0.25em;
+  height: 53.375px;
+  position: fixed;
+  top: 10px;
+  left: 5px;
+  right: 0;
+}
+
+.top-wrap{
+  margin: 0 auto;
+  position: absolute;
+  top: 54px;
+  height: 125px;
+  left: 0;
+  right: 0;
+  background-image: url("pictures/body_background_image.jpg");
+}
+.logo {
+  position: absolute;
+  top: 23px;
+  left: 100px;
+  height: 125px;
+  max-height: 122px;
+  width: 122px;
+}
+
+.project-name {
+  background-color: #FFF;
+  border-radius: 20px 0px 0px 0px;
+  height: 25px;
+  font-size: 1.3em;
+  padding: 15px 5000px 7px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 220px;
+  width: 871px;
+}
+.content {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  max-width: 1500px;
+}
+.l-article-wrap{
+  position: absolute;
+  top: 200px;
+  left:10px;
+  width: 100px;
+  }
+
+.main-content-wrapper{
+  position: absolute
+  width: 100%;
+  top: 10px;
+  margin: 0 auto;
+}
+
+.table-wrapper {
+  position: relative;
+ }
+
+.table-scroll {
+  width: 1200px;
+  height: 800px;
+  overflow-x:scroll;
+  margin-top; 20px;
+  over-flow-y:scroll
+  }
+
+.table-wrapper table {
+  width: 100%;
+  table-layout: auto;
+  }
+
+.table-wrapper table thread th.text{
+  position: absolute;
+  top: -200px;
+  z-index:2;
+  height:20px;
+  width: 35&
+  border: 0.5px solid;
+  }
+.tabs {
+   position: relative;
+   top: 180px;
+   width: 1500px;
+   }
+.tabs::before,
+.tabs:after {
+  content: "";
+  display: table;
+  }
+.tabs::after {
+   clear: both;
+   }
+.tab {
+    float: left;
+    }
+.tablinks {
+     display: none;
+}
+
+.tab-label {
+    position: relative;
+    display: block;
+    line-height: 2.75em
+    height: 3em;
+    width: 100%;
+    padding: 0.1618em;
+    background:  #fae5d3;
+    border-right: 0.125em; solid, #85929e;
+    cursor: pointer;
+    top: 0
+    transition: all 0.25s;
+}
+
+.tab-label: hover {
+    top: -0.15rem;
+    transition: top 0.25s;
+    }
+
+.tabcontent {
+   width: 100%;
+   position: absolute;
+   z-index: 1;
+   top: 1.15em;
+   left: 0;
+   padding: 1.018rem;
+   background: #fbeee6;
+   color: black;
+   opacity: 0;
+   transition: all 0.35s;
+}
+.tablinks:checked + .tab-label {
+    background-color: #fbeee6;
+    color: black;
+    border-bottom: 0;
+    border-right: 0.125rem solid #ebedef;
+    transition: all 0.35s;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    z-index: 0.5;
+    top: -0.0625rem;
+    }
+
+.tablinks:checked + .tab-label + .tabcontent  {
+   z-index: 1;
+   opacity: 1;
+   transition: all 0.35s;
+   }

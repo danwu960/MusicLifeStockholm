@@ -1,0 +1,4 @@
+--select a."aktor_id", c."aktor_id", a."a_namn", c."a_namn", a."tonsättare", c."tonsattare", a."huvudinstrument", c."huvudinstrument" from "aktor" as a, "aktor_copy" as c where a."aktor_id" = c."aktor_id"
+--select c."aktor_id", k.*, c."fk_nation_verksam_ID" from "aktor_copy" as c, "aktor_verksam" as k where c."aktor_id" = k."aktor_id";
+
+--alter table "aktor" drop column "fk_nation_verksam_ID";

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} Welcome to Canon and Concert life in
+        Stockholm</title>
+    <link href="{{ url_for('static',path='/styles.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+
+
+<body>
+<div class="container">
+    <header class="header-element">
+        {%block admin_header %}
+        <div class="admin-login">
+            <form id="login-form" method="post">
+                <label for="username">Username:</label>
+                <input id="username" name="username" type="text"/>
+                <label for="password">Password:</label>
+                <input id="password" name="password" type="password"/>
+                <input type="submit">
+            </form>
+        </div>
+        {% endblock %}
+        {% block javascript %}
+        <script>
+            document.getElementById("login-form").addEventListener("submit", function(event) {
+                event.preventDefault();
+                var form = document.getElementById("login-form");
+                var formData = new FormData(form);
+                var data = {}
+                formData.forEach(function(value, key){
+                    data[key] = value;
+                });
+
+                var xhr = new XMLHtpRequest();
+                xhr.open("POST", "/token");
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencode;charset=UTF-8");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4) {
+                        console.log(xhr.responseText);
+                        }
+                };
+                xhr.send(encodeFormData(data));
+            });
+                function encodeFormData(data) {
+                    return Object.keys(data).map(function(key) {
+                        return encodeURIComponent(key) + '=' encodeURIComponent(data[key]);
+                }).join('&');
+            }
+
+    </script>
+        {% endblock %}
+        <div class="top-wrap">
+            <a class="logo-link" href="https://www.uu.se" title="Uppsala universitets startsida">
+                <img class="logo" src="{{ url_for('static', path='pictures/svg-uu-logo.svg') }}" alt="Uppsala university"/>
+            </a>
+            <span class="project-name">Canon and Concert life in Stockholm</span>
+        </div>
+</header>
+
+    {%block content %}
+    <div class="content">
+        {%block main_links %}
+        <div class="l-article-wrap">
+            <ul class="navbar">
+                <li><a href="{{ url_for('about') }}">The Project</a></li>
+                <li><a href="{{ url_for('statistics') }}">Statistics</a></li>
+                <li><a href="{{ url_for('links') }}">Links</a></li>
+            </ul>
+        </div>
+        {% endblock %}
+        <div class="main-content-wrapper">
+            {%block main_content %}{% endblock main_content %}
+        </div>
+    </div>
+    {% endblock %}
+</div>
+</body>
+</html>
